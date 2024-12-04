@@ -1,0 +1,18 @@
+{
+  "id": 0,
+  "category": {
+    "id": 4,
+    "name": "Test PETrr"
+  },
+  "name": "doggie",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "yellow"
+    }
+  ],
+  "status": "available"
+}

@@ -1,0 +1,2 @@
+firstName,last_Name,phone,email,address,city,state,postalcode,country,username,password,confirm_Password
+Test_Firstname,Test-LastName,8080809090,test_email@test.com,bangalore,bangalore,karnataka,809090,INDIA,test_UserName,Test_Password,Test_Password

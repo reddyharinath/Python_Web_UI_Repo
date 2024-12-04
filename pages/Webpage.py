@@ -233,7 +233,7 @@ class Web_UI_Page(BaseClass):
         return [min_value,max_value]
 
 
-    def registration_Using_Excel_Test_Data(self,firstName,lastName,PhoneNumber,emailID,address,city,state,postalcode,country,username,password,confirmPassword):
+    def registration_Using_External_File_Test_Data(self,firstName,lastName,PhoneNumber,emailID,address,city,state,postalcode,country,username,password,confirmPassword):
         logger = self.get_Log_Details()
         logger.info("Handling slider bar")
         self.driver.find_element(*self.link_Registration).click()

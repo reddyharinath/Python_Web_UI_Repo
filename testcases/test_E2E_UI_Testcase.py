@@ -1,4 +1,5 @@
 import pytest
+from faker import Faker
 from robot.utils.asserts import assert_true
 from pages.BaseClass import BaseClass
 from pages.Webpage import Web_UI_Page
@@ -10,12 +11,14 @@ baseClass= BaseClass()
 logger=baseClass.get_Log_Details()
 dataFromJsonFile = Utility_Class.read_Json_File()
 excel_Test_Data_Dict = Utility_Class.read_Excel_File('../testdata/reg_Test_Data.xlsx')
+csv_Test_Data_Dict = Utility_Class.read_CSV_File('../testdata/testData_CSV.csv')
+fakerData = Faker()
 
 
 @pytest.mark.usefixtures("browser_SetUp")
 class Test_Class_UI:
 
-    #@pytest.mark.skip
+    @pytest.mark.skip
     def testcase_Handle_Dynamic_DropDown(self,browser_SetUp):
 
         logger.info('URL data from properties file is : '+configuration_Details['UI_Assessment']['handle_Dynamic_Dropdown_URL'])
@@ -27,7 +30,7 @@ class Test_Class_UI:
         logger.info('Searching got completed.')
         logger.info('driver closed...')
 
-
+    @pytest.mark.skip
     def testcase_handle_Static_Dropdown(self,browser_SetUp):
 
         logger.info('Captured URL from properties file is : ' + configuration_Details['UI_Assessment']['handle_Static_DropDown'])
@@ -39,7 +42,7 @@ class Test_Class_UI:
         logger.info('Searching got completed.')
         logger.info('driver closed...')
 
-
+    @pytest.mark.skip
     def testcase_Drag_And_Drop_Task(self,browser_SetUp):
 
         APP_URL = configuration_Details['UI_Assessment']['drag_And_Drop_Task_URL']
@@ -50,7 +53,7 @@ class Test_Class_UI:
         page.drag_And_Drop_Task()
         logger.info('driver closed...')
 
-
+    @pytest.mark.skip
     def testcase_Handle_Frame(self,browser_SetUp):
 
         APP_URL = configuration_Details['UI_Assessment']['handle_Static_DropDown']
@@ -61,7 +64,7 @@ class Test_Class_UI:
         page.handle_Frame_Elements()
         logger.info('driver closed...')
 
-
+    @pytest.mark.skip
     def testcase_Capture_AlertText_And_Accept(self,browser_SetUp):
         driver = self.driver
         APP_URL = configuration_Details['UI_Assessment']['handle_Static_DropDown']
@@ -73,7 +76,7 @@ class Test_Class_UI:
         assert dataFromJsonFile['Alert_Data'].lower() in alert_Data.lower()
         logger.info('driver closed...')
 
-
+    @pytest.mark.skip
     def testcase_Capture_AlertText_And_Dismiss(self,browser_SetUp):
         driver = self.driver
         APP_URL = configuration_Details['UI_Assessment']['handle_Static_DropDown']
@@ -85,7 +88,7 @@ class Test_Class_UI:
         assert dataFromJsonFile['Alert_Data'].lower() in alert_Data.lower()
         logger.info('driver closed...')
 
-
+    @pytest.mark.skip
     def testcase_Move_To_Element_And_Click(self,browser_SetUp):
         driver = self.driver
         APP_URL = configuration_Details['UI_Assessment']['handle_Static_DropDown']
@@ -97,7 +100,7 @@ class Test_Class_UI:
         assert_true(bool(data))
         logger.info('driver closed...')
 
-
+    @pytest.mark.skip
     def testcase_Handle_Windows(self, browser_SetUp):
         driver = self.driver
         APP_URL = configuration_Details['UI_Assessment']['handle_Static_DropDown']
@@ -109,7 +112,7 @@ class Test_Class_UI:
         assert_true(parent_Window_Title_data.lower() == 'practice page')
         logger.info('driver closed...')
 
-
+    @pytest.mark.skip
     def testcase_Handle_Windows_Tabs(self, browser_SetUp):
         driver = self.driver
         APP_URL = configuration_Details['UI_Assessment']['handle_Static_DropDown']
@@ -121,8 +124,7 @@ class Test_Class_UI:
         assert_true(parent_Window_Title_data.lower() == 'practice page')
         logger.info('driver closed...')
 
-
-
+    @pytest.mark.skip
     def testcase_Handle_Slier_Bar(self, browser_SetUp):
         driver = self.driver
         APP_URL = configuration_Details['UI_Assessment']['drag_And_Drop_Task_URL']
@@ -136,6 +138,7 @@ class Test_Class_UI:
         logger.info('driver closed...')
 
     @pytest.mark.smoke
+    @pytest.mark.skip
     def testcase_Handle_Dynamic_Suggession_Box(self, browser_SetUp):
         driver = self.driver
         APP_URL = configuration_Details['UI_Assessment']['handle_Static_DropDown']
@@ -147,7 +150,7 @@ class Test_Class_UI:
         assert dataFromJsonFile['Input_Dynamic_Dropdown'].lower() in data.lower()
         logger.info('driver closed...')
 
-
+    @pytest.mark.skip
     def testcase_Registration_With_Excel_Data(self,browser_SetUp):
         APP_URL = configuration_Details['UI_Assessment']['registration_Task_URL']
         logger.info('Captured URL from properties file is : ' + APP_URL)
@@ -170,5 +173,61 @@ class Test_Class_UI:
         password = excel_Test_Data_Dict['password']
         confirm_Password = excel_Test_Data_Dict['cPassword']
 
-        userName_Details = page.registration_Using_Excel_Test_Data(firstName,lastName,phone,email,address,city,state,postalCode,country,username,password,confirm_Password)
+        userName_Details = page.registration_Using_External_File_Test_Data(firstName,lastName,phone,email,address,city,state,postalCode,country,username,password,confirm_Password)
         assert username.lower() in userName_Details.lower()
+
+    @pytest.mark.skip
+    def test_Handle_CSV_File(self):
+        APP_URL = configuration_Details['UI_Assessment']['registration_Task_URL']
+        logger.info('Captured URL from properties file is : ' + APP_URL)
+        self.driver.get(APP_URL)
+        logger.info('Page loaded')
+        page = Web_UI_Page(self.driver)
+
+        firstName = csv_Test_Data_Dict['firstName']
+        lastName = csv_Test_Data_Dict['last_Name']
+        phone = csv_Test_Data_Dict['phone']
+        email = csv_Test_Data_Dict['email']
+
+        address = csv_Test_Data_Dict['address']
+        city = csv_Test_Data_Dict['city']
+        state = csv_Test_Data_Dict['state']
+        postalCode = csv_Test_Data_Dict['postalcode']
+        country = csv_Test_Data_Dict['country']
+
+        username = csv_Test_Data_Dict['username']
+        password = csv_Test_Data_Dict['password']
+        confirm_Password = csv_Test_Data_Dict['confirm_Password']
+
+        userName_Details = page.registration_Using_External_File_Test_Data(firstName,lastName,phone,email,address,city,state,postalCode,country,username,password,confirm_Password)
+        assert username.lower() in userName_Details.lower()
+
+    #@pytest.mark.skip
+    def test_Read_FakerData(self):
+        APP_URL = configuration_Details['UI_Assessment']['registration_Task_URL']
+        logger.info('Captured URL from properties file is : ' + APP_URL)
+        self.driver.get(APP_URL)
+        logger.info('Page loaded')
+        page = Web_UI_Page(self.driver)
+
+        firstName = fakerData.first_name()
+        lastName = fakerData.last_name()
+        phone = fakerData.phone_number()
+        email = fakerData.email()
+
+        address = csv_Test_Data_Dict['address']
+        city = csv_Test_Data_Dict['city']
+        state = csv_Test_Data_Dict['state']
+        postalCode = csv_Test_Data_Dict['postalcode']
+        country = csv_Test_Data_Dict['country']
+
+        username = fakerData.user_name()
+        password = fakerData.password()
+        confirm_Password = password
+
+
+        userName_Details = page.registration_Using_External_File_Test_Data(firstName, lastName, phone, email, address,password, confirm_Password)
+        assert username.lower() in userName_Details.lower()
+
+
+

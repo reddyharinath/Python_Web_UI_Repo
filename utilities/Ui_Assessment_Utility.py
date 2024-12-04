@@ -1,4 +1,5 @@
 import configparser
+import csv
 import json
 from time import process_time_ns
 
@@ -33,3 +34,22 @@ class Utility_Class:
                 #print(work_Sheet.cell(row=1,column=j).value)
                 #print(work_Sheet.cell(row=i,column=j).value, sep= ' ')
         return test_Data_Dict
+    @staticmethod
+    def read_CSV_File(csvFilePath):
+        with open(csvFilePath) as file:
+            csvFile = csv.DictReader(file)
+            for lines in csvFile:
+                return lines
+
+
+    @staticmethod
+    def loadPayLoad(filePath):
+        with open(filePath) as dataFile:
+            data_Dict = json.load(dataFile)
+            return data_Dict
+
+    @staticmethod
+    def readConfigDetails():
+        configParser = configparser.ConfigParser()
+        configParser.read('../testdata/Properties.ini')
+        return configParser
