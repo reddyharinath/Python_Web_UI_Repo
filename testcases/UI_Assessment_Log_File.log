@@ -8126,3 +8126,31 @@
 2024-12-04 17:20:46,102: INFO: pages.BaseClass: Handling slider bar
 2024-12-04 17:20:49,648: INFO: pages.BaseClass: Note: Your user name is wallacejason.
 2024-12-04 17:20:49,648: INFO: pages.BaseClass: Note: Your user name is wallacejason.
+2024-12-04 17:26:22,771: INFO: pages.BaseClass: validating created PET details
+2024-12-04 17:26:22,771: INFO: pages.BaseClass: validating created PET details
+2024-12-04 17:26:22,772: INFO: pages.BaseClass: created PET ID is: 9223372036854775807
+2024-12-04 17:26:22,772: INFO: pages.BaseClass: created PET ID is: 9223372036854775807
+2024-12-04 17:26:22,781: INFO: pages.BaseClass: validating retrieved PET details
+2024-12-04 17:26:22,781: INFO: pages.BaseClass: validating retrieved PET details
+2024-12-04 17:26:23,982: INFO: pages.BaseClass: Retrieved PET id is: 9223372036854775807
+2024-12-04 17:26:23,982: INFO: pages.BaseClass: Retrieved PET id is: 9223372036854775807
+2024-12-04 17:26:23,987: INFO: pages.BaseClass: validating updated PET details
+2024-12-04 17:26:23,987: INFO: pages.BaseClass: validating updated PET details
+2024-12-04 17:26:25,105: INFO: pages.BaseClass: Updated PET id is: 9223372036854775807
+2024-12-04 17:26:25,105: INFO: pages.BaseClass: Updated PET id is: 9223372036854775807
+2024-12-04 17:26:25,107: INFO: pages.BaseClass: validating deleted PET details
+2024-12-04 17:26:25,107: INFO: pages.BaseClass: validating deleted PET details
+2024-12-04 17:26:26,283: INFO: pages.BaseClass: Deleted PET id is: 9223372036854775807
+2024-12-04 17:26:26,283: INFO: pages.BaseClass: Deleted PET id is: 9223372036854775807
+2024-12-04 17:26:29,729: INFO: pages.BaseClass: Captured URL from properties file is : https://demo.guru99.com/test/newtours/register.php
+2024-12-04 17:26:29,729: INFO: pages.BaseClass: Captured URL from properties file is : https://demo.guru99.com/test/newtours/register.php
+2024-12-04 17:26:31,708: INFO: pages.BaseClass: Page loaded
+2024-12-04 17:26:31,708: INFO: pages.BaseClass: Page loaded
+2024-12-04 17:28:35,154: INFO: pages.BaseClass: Captured URL from properties file is : https://demo.guru99.com/test/newtours/register.php
+2024-12-04 17:28:37,770: INFO: pages.BaseClass: Page loaded
+2024-12-04 17:30:28,996: INFO: pages.BaseClass: Captured URL from properties file is : https://demo.guru99.com/test/newtours/register.php
+2024-12-04 17:30:31,082: INFO: pages.BaseClass: Page loaded
+2024-12-04 17:30:31,085: INFO: pages.BaseClass: Handling slider bar
+2024-12-04 17:30:31,085: INFO: pages.BaseClass: Handling slider bar
+2024-12-04 17:30:34,910: INFO: pages.BaseClass: Note: Your user name is joanna76.
+2024-12-04 17:30:34,910: INFO: pages.BaseClass: Note: Your user name is joanna76.
